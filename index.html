@@ -1,0 +1,584 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Tarbiyah Fair XI 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: satu kolom sempit di kiri, hero bermotif bintang segi delapan, dua tombol besar berdampingan lalu daftar lomba yang bisa dibuka. */
+:root {
+  --bg: #F1F5F2;
+  --surface: #FFFFFF;
+  --fg: #0E2420;
+  --muted: #4B625C;
+  --line: #CAD8D2;
+  --pattern: #B7CEC5;
+  --accent: #0A6A55;
+  --accent-ink: #FFFFFF;
+  --tint: #DDEBE5;
+  --gold: #8A5F0B;
+  --gold-soft: #F4E7C9;
+  --red: #9C2F2F;
+  --red-soft: #F6DEDC;
+  --plate: #0C3B31;
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1A17;
+    --surface: #132622;
+    --fg: #E6F0EC;
+    --muted: #9DB5AD;
+    --line: #28433D;
+    --pattern: #1B3630;
+    --accent: #4CC2A0;
+    --accent-ink: #06211A;
+    --tint: #173831;
+    --gold: #E3B655;
+    --gold-soft: #2F2813;
+    --red: #EE8C84;
+    --red-soft: #3A1C1B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1A17;
+  --surface: #132622;
+  --fg: #E6F0EC;
+  --muted: #9DB5AD;
+  --line: #28433D;
+  --pattern: #1B3630;
+  --accent: #4CC2A0;
+  --accent-ink: #06211A;
+  --tint: #173831;
+  --gold: #E3B655;
+  --gold-soft: #2F2813;
+  --red: #EE8C84;
+  --red-soft: #3A1C1B;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  padding-inline: 16px;
+  padding-block: 0 48px;
+}
+.wrap { max-width: 760px; margin-inline: auto; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+
+/* Hero */
+.hero { position: relative; padding-block: 44px 28px; overflow: hidden; }
+.hero svg.pat {
+  position: absolute; inset: 0 -40px 0 auto; width: 70%; height: 100%;
+  -webkit-mask-image: linear-gradient(to left, #000 20%, transparent 95%);
+  mask-image: linear-gradient(to left, #000 20%, transparent 95%);
+  pointer-events: none;
+}
+.hero svg.pat path { fill: none; stroke: var(--pattern); stroke-width: 1.4; }
+.hero > * { position: relative; }
+.eyebrow {
+  font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent);
+}
+.hero {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 20px; align-items: start;
+  grid-template-areas: "eyebrow mascot" "logo mascot" "copy mascot";
+}
+.hero .eyebrow { grid-area: eyebrow; }
+.hero h1 {
+  grid-area: logo; margin-top: 12px;
+  font-size: clamp(2.7rem, 11vw, 4.6rem); line-height: .95; font-weight: 800; letter-spacing: -.02em;
+}
+.hero h1 .xi { color: var(--gold); }
+.hero .copy { grid-area: copy; margin-top: 16px; min-width: 0; }
+.hero .mascot {
+  grid-area: mascot; align-self: end; width: clamp(130px, 26vw, 230px); height: auto;
+  filter: drop-shadow(0 12px 14px rgba(0, 0, 0, .22));
+}
+.hero .year { font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+.hero .lead { margin-top: 10px; max-width: 46ch; color: var(--muted); }
+@media (max-width: 520px) {
+  .hero { grid-template-areas: "eyebrow eyebrow" "logo logo" "copy mascot"; align-items: end; }
+  .hero .mascot { width: 118px; }
+}
+
+/* Tombol utama */
+.bigs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
+.big {
+  display: flex; flex-direction: column; gap: 10px; min-width: 0;
+  padding: 22px 20px; border-radius: 18px; text-decoration: none;
+  background: var(--surface); border: 1.5px solid var(--line);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.big:hover { transform: translateY(-2px); border-color: var(--accent); }
+.big.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.big .ico { width: 34px; height: 34px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.big h2 { font-size: 1.35rem; line-height: 1.15; font-weight: 800; }
+.big .sub { font-size: .92rem; opacity: .82; }
+.big .go { margin-top: auto; padding-top: 6px; font-weight: 700; font-size: .95rem; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; font-size: .92rem; color: var(--muted); }
+.stats b { color: var(--fg); font-variant-numeric: tabular-nums; }
+
+/* Halaman dalam */
+.topbar { display: flex; align-items: center; gap: 12px; padding-block: 18px 6px; }
+.back {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px 0 12px;
+  border-radius: 999px; background: var(--surface); border: 1.5px solid var(--line);
+  font: inherit; font-weight: 600; font-size: .92rem; text-decoration: none; cursor: pointer; color: var(--fg);
+}
+.back:hover { border-color: var(--accent); }
+.page-head { padding-block: 14px 8px; }
+.page-head h2 { font-size: clamp(1.8rem, 6.5vw, 2.5rem); line-height: 1.05; font-weight: 800; letter-spacing: -.01em; }
+.page-head p { margin-top: 10px; color: var(--muted); max-width: 52ch; }
+
+.group-title {
+  display: flex; align-items: center; gap: 12px; margin: 26px 0 10px;
+  font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+}
+.group-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.list { display: flex; flex-direction: column; gap: 10px; }
+
+.badge {
+  flex: none; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 999px;
+}
+.badge.online { background: var(--tint); color: var(--accent); }
+.badge.offline { background: var(--red-soft); color: var(--red); }
+
+/* Akordeon juknis */
+.item { background: var(--surface); border: 1.5px solid var(--line); border-radius: 16px; overflow: hidden; }
+.item.open { border-color: var(--accent); }
+.item-btn {
+  display: flex; align-items: center; gap: 12px; width: 100%; min-height: 60px; padding: 12px 16px;
+  background: none; border: 0; font: inherit; color: inherit; text-align: left; cursor: pointer;
+}
+.item-btn .num {
+  flex: none; width: 2ch; font-family: var(--font-display); font-weight: 800; color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+.item-btn .name { flex: 1; min-width: 0; font-weight: 600; font-size: 1.04rem; overflow-wrap: anywhere; }
+.chev { flex: none; width: 10px; height: 10px; border-right: 2.5px solid var(--muted); border-bottom: 2.5px solid var(--muted); transform: rotate(45deg); transition: transform .2s ease; margin-right: 4px; }
+.item.open .chev { transform: rotate(-135deg); }
+.panel { padding: 4px 18px 20px 18px; border-top: 1px solid var(--line); }
+.panel .intro { margin-top: 14px; }
+.panel h4 {
+  margin: 18px 0 6px; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent);
+}
+.panel p.who { color: var(--fg); }
+.panel ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 5px; }
+.panel li::marker { color: var(--gold); }
+.panel .cta { margin-top: 20px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px;
+  border-radius: 999px; background: var(--accent); color: var(--accent-ink); border: 0;
+  font: inherit; font-weight: 700; text-decoration: none; cursor: pointer;
+}
+.btn:hover { filter: brightness(1.08); }
+
+/* Daftar pendaftaran */
+.reg {
+  display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 12px 16px;
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: 16px;
+  text-decoration: none; color: inherit; width: 100%; font: inherit; text-align: left; cursor: pointer;
+}
+.reg:hover { border-color: var(--accent); }
+.reg .num { flex: none; width: 2ch; font-family: var(--font-display); font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; }
+.reg .name { flex: 1; min-width: 0; font-weight: 600; font-size: 1.04rem; overflow-wrap: anywhere; }
+.reg .daftar { flex: none; font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+.toast {
+  position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+  background: var(--fg); color: var(--bg); padding: 12px 18px; border-radius: 12px; font-weight: 600; font-size: .92rem;
+  max-width: calc(100% - 32px); text-align: center; z-index: 10;
+}
+footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line); font-size: .86rem; color: var(--muted); }
+
+@media (max-width: 520px) {
+  .bigs { grid-template-columns: 1fr; }
+  .big { flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .big .ico { order: 0; }
+  .big h2 { flex: 1; }
+  .big .sub, .big .go { flex-basis: 100%; }
+  .item-btn .badge { display: none; }
+  .item-btn .name::after {
+    content: attr(data-mode); display: block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .big, .chev { transition: none; }
+}
+</style>
+
+<div class="wrap">
+
+  <!-- BERANDA -->
+  <section data-view="home">
+    <header class="hero">
+      <svg class="pat" aria-hidden="true" focusable="false">
+        <defs>
+          <pattern id="star" width="56" height="56" patternUnits="userSpaceOnUse">
+            <path d="M14 14h28v28H14z"/>
+            <path d="M28 6 50 28 28 50 6 28z"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#star)" style="stroke:none"/>
+      </svg>
+      <p class="eyebrow">Pendaftaran Perlombaan</p>
+      <h1>Tarbiyah Fair <span class="xi">XI</span></h1>
+      <div class="copy">
+        <p class="year">2026 &middot; 11 cabang lomba</p>
+        <p class="lead">Baca petunjuk teknis lomba yang kamu minati, lalu daftar lewat formulir yang tersedia.</p>
+      </div>
+      <img class="mascot" src="assets/maskot.png" width="637" height="900" alt="Maskot Tarbiyah Fair XI, gajah berpeci hijau yang melambaikan tangan">
+    </header>
+
+    <div class="bigs">
+      <a class="big" href="#juknis" data-go="juknis">
+        <svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4h12l6 6v18H8z"/><path d="M20 4v6h6"/><path d="M12 16h10M12 21h10M12 26h6"/></svg>
+        <h2>Juknis Perlombaan</h2>
+        <p class="sub">Aturan, ketentuan, dan penilaian tiap lomba.</p>
+        <span class="go">Lihat juknis &rarr;</span>
+      </a>
+      <a class="big primary" href="#daftar" data-go="daftar">
+        <svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="5" width="20" height="22" rx="3"/><path d="M11 12l2.5 2.5L19 9M11 20h10"/></svg>
+        <h2>Pendaftaran Perlombaan</h2>
+        <p class="sub">Pilih lomba, lalu isi formulir Google Form.</p>
+        <span class="go">Daftar sekarang &rarr;</span>
+      </a>
+    </div>
+
+    <p class="stats"><span><b>4</b> lomba online</span><span><b>7</b> lomba offline</span></p>
+  </section>
+
+  <!-- JUKNIS -->
+  <section data-view="juknis" hidden>
+    <div class="topbar"><a class="back" href="#" data-go="home"><span aria-hidden="true">&larr;</span> Beranda</a></div>
+    <div class="page-head">
+      <h2>Juknis Perlombaan</h2>
+      <p>Ketuk nama lomba untuk membuka petunjuk teknisnya.</p>
+    </div>
+    <div id="juknis-online"></div>
+    <div id="juknis-offline"></div>
+  </section>
+
+  <!-- PENDAFTARAN -->
+  <section data-view="daftar" hidden>
+    <div class="topbar"><a class="back" href="#" data-go="home"><span aria-hidden="true">&larr;</span> Beranda</a></div>
+    <div class="page-head">
+      <h2>Pendaftaran Perlombaan</h2>
+      <p>Ketuk lomba yang ingin kamu ikuti. Kamu akan diarahkan ke formulir pendaftarannya.</p>
+    </div>
+    <div id="daftar-online"></div>
+    <div id="daftar-offline"></div>
+  </section>
+
+  <footer>Tarbiyah Fair XI &middot; 2026</footer>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+/*
+  CARA MENGISI TAUTAN GOOGLE FORM
+  Ganti nilai form: "" pada tiap lomba di bawah dengan tautan formulirnya,
+  contoh: form: "https://forms.gle/abc123".
+  Teks juknis juga bisa diedit langsung di data ini.
+*/
+var LOMBA = [
+  {
+    id: "desain-poster", no: 1, name: "Desain Poster", mode: "online", form: "",
+    intro: "Merancang satu poster digital yang menyampaikan pesan tentang pendidikan dan Tarbiyah Fair XI.",
+    peserta: "Perorangan.",
+    ketentuan: [
+      "Karya orisinal, belum pernah dipublikasikan atau diikutkan lomba lain.",
+      "Ukuran A3 potret, format JPG atau PNG, resolusi minimal 300 dpi.",
+      "Boleh memakai aplikasi desain apa pun. Aset dari pihak lain harus bebas hak cipta.",
+      "Karya dikirim melalui tautan yang tersedia di formulir pendaftaran sebelum batas waktu."
+    ],
+    penilaian: ["Kesesuaian dengan tema", "Kreativitas dan orisinalitas", "Komposisi dan tipografi", "Daya komunikasi pesan"]
+  },
+  {
+    id: "menulis-essay", no: 2, name: "Menulis Essay", mode: "online", form: "",
+    intro: "Menulis esai argumentatif tentang topik pendidikan sesuai tema dari panitia.",
+    peserta: "Perorangan.",
+    ketentuan: [
+      "Tulisan orisinal dan bebas plagiarisme.",
+      "Bahasa Indonesia baku, panjang 800 sampai 1.200 kata.",
+      "Format A4, Times New Roman 12, spasi 1,5, dikirim dalam bentuk PDF.",
+      "Cantumkan judul dan daftar pustaka bila mengutip sumber."
+    ],
+    penilaian: ["Isi dan kekuatan argumen", "Struktur tulisan", "Bahasa dan ejaan", "Orisinalitas gagasan"]
+  },
+  {
+    id: "bimbingan-kelompok", no: 3, name: "Bimbingan Kelompok", mode: "online", form: "",
+    intro: "Menampilkan simulasi layanan bimbingan kelompok dalam bentuk video.",
+    peserta: "Tim. Jumlah anggota sesuai ketentuan di formulir pendaftaran.",
+    ketentuan: [
+      "Video berdurasi 10 sampai 15 menit, format MP4.",
+      "Ada satu pemimpin kelompok dan beberapa anggota kelompok.",
+      "Simulasi memuat tahap pembentukan, peralihan, kegiatan, dan pengakhiran.",
+      "Tautan video dikirim melalui formulir pendaftaran."
+    ],
+    penilaian: ["Ketepatan tahapan layanan", "Keterampilan pemimpin kelompok", "Dinamika kelompok", "Kualitas video"]
+  },
+  {
+    id: "qiraatusy-syiir", no: 4, name: "Qira’atusy Syi’ir", mode: "online", form: "",
+    intro: "Membaca syair berbahasa Arab dengan lafal, irama, dan penghayatan yang baik, direkam dalam video.",
+    peserta: "Perorangan.",
+    ketentuan: [
+      "Syair dipilih peserta, bernuansa keislaman atau pendidikan.",
+      "Video berdurasi 3 sampai 5 menit, direkam satu kali pengambilan tanpa penyuntingan suara.",
+      "Wajah dan suara peserta terlihat dan terdengar jelas.",
+      "Tautan video dikirim melalui formulir pendaftaran."
+    ],
+    penilaian: ["Makharijul huruf dan kelancaran", "Ketepatan harakat", "Irama dan penghayatan", "Penampilan"]
+  },
+  {
+    id: "ranking-1", no: 5, name: "Ranking 1", mode: "offline", form: "",
+    intro: "Lomba cerdas cermat dengan materi pengetahuan umum, keislaman, dan kependidikan.",
+    peserta: "Tim beranggotakan 3 orang.",
+    ketentuan: [
+      "Terdiri dari babak penyisihan tertulis dan babak final.",
+      "Peserta membawa alat tulis sendiri. Alat komunikasi dikumpulkan sebelum lomba.",
+      "Jawaban benar mendapat poin, jawaban salah dapat dikurangi poin sesuai aturan juri.",
+      "Keputusan juri bersifat mutlak."
+    ],
+    penilaian: ["Jumlah poin akhir", "Ketepatan dan kecepatan menjawab"]
+  },
+  {
+    id: "cc-mipa", no: 6, name: "CC MIPA", mode: "offline", form: "",
+    intro: "Cerdas cermat bidang Matematika dan Ilmu Pengetahuan Alam.",
+    peserta: "Tim beranggotakan 3 orang.",
+    ketentuan: [
+      "Materi mencakup Matematika, Fisika, Kimia, dan Biologi.",
+      "Terdiri dari babak penyisihan dan babak final.",
+      "Alat bantu hitung hanya boleh dipakai bila diizinkan panitia.",
+      "Keputusan juri bersifat mutlak."
+    ],
+    penilaian: ["Jumlah poin akhir", "Ketepatan jawaban", "Kecepatan menjawab"]
+  },
+  {
+    id: "mewarnai", no: 7, name: "Mewarnai", mode: "offline", form: "",
+    intro: "Mewarnai gambar yang disediakan panitia pada waktu yang ditentukan.",
+    peserta: "Perorangan, anak jenjang TK atau SD.",
+    ketentuan: [
+      "Gambar disediakan panitia. Alat mewarnai (krayon atau pensil warna) dibawa sendiri.",
+      "Pengerjaan dilakukan di tempat lomba selama waktu yang ditentukan.",
+      "Pendamping menunggu di luar area lomba.",
+      "Karya diberi nama peserta di bagian belakang kertas."
+    ],
+    penilaian: ["Kerapian", "Perpaduan warna", "Kreativitas", "Kebersihan hasil"]
+  },
+  {
+    id: "vocal-solo", no: 8, name: "Vocal Solo", mode: "offline", form: "",
+    intro: "Menyanyikan satu lagu secara solo di hadapan juri.",
+    peserta: "Perorangan.",
+    ketentuan: [
+      "Lagu bebas dan sopan, boleh bernuansa islami, nasional, atau daerah.",
+      "Durasi 3 sampai 5 menit.",
+      "Iringan berupa musik minus one yang dibawa sendiri atau tanpa iringan.",
+      "Peserta berpakaian rapi dan sopan."
+    ],
+    penilaian: ["Teknik vokal", "Intonasi dan tempo", "Ekspresi dan penghayatan", "Penampilan"]
+  },
+  {
+    id: "story-telling", no: 9, name: "Story Telling", mode: "offline", form: "",
+    intro: "Menceritakan sebuah kisah secara lisan dengan menarik di depan juri.",
+    peserta: "Perorangan.",
+    ketentuan: [
+      "Cerita berupa dongeng atau kisah teladan, dibawakan dalam bahasa Indonesia.",
+      "Durasi 5 sampai 7 menit.",
+      "Boleh memakai alat peraga sederhana.",
+      "Peserta tidak membaca teks saat tampil."
+    ],
+    penilaian: ["Isi dan alur cerita", "Intonasi dan ekspresi", "Mimik dan gerak tubuh", "Penguasaan panggung"]
+  },
+  {
+    id: "rapai-geleng", no: 10, name: "Rapai Geleng", mode: "offline", form: "",
+    intro: "Menampilkan tarian tradisional Aceh Rapai Geleng secara berkelompok.",
+    peserta: "Kelompok beranggotakan 9 sampai 12 orang.",
+    ketentuan: [
+      "Durasi penampilan 7 sampai 10 menit.",
+      "Iringan boleh dimainkan langsung atau memakai rekaman.",
+      "Busana mengikuti pakaian adat Aceh yang sopan.",
+      "Peserta hadir di lokasi sesuai jadwal tampil."
+    ],
+    penilaian: ["Kekompakan", "Teknik gerak", "Musikalitas", "Busana dan penghayatan"]
+  },
+  {
+    id: "monolog", no: 11, name: "Monolog", mode: "offline", form: "",
+    intro: "Memerankan satu tokoh dalam pertunjukan monolog di atas panggung.",
+    peserta: "Perorangan.",
+    ketentuan: [
+      "Naskah orisinal atau adaptasi dengan mencantumkan sumbernya.",
+      "Tema bebas dan tidak menyinggung SARA.",
+      "Durasi 5 sampai 8 menit.",
+      "Properti sederhana dan dibawa sendiri oleh peserta."
+    ],
+    penilaian: ["Penghayatan tokoh", "Vokal dan artikulasi", "Ekspresi dan gestur", "Kualitas naskah"]
+  }
+];
+
+(function () {
+  var MODE_LABEL = { online: "Online", offline: "Offline" };
+  var toastTimer = null;
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function toast(msg) {
+    var t = document.getElementById("toast");
+    t.textContent = msg;
+    t.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.hidden = true; }, 3200);
+  }
+
+  function groupTitle(mode, count) {
+    return el("div", "group-title", MODE_LABEL[mode] + " · " + count + " lomba");
+  }
+
+  function addList(parent, label, items) {
+    parent.appendChild(el("h4", null, label));
+    var ul = el("ul");
+    items.forEach(function (t) { ul.appendChild(el("li", null, t)); });
+    parent.appendChild(ul);
+  }
+
+  function openForm(l) {
+    if (l.form) {
+      window.open(l.form, "_blank", "noopener");
+    } else {
+      toast("Formulir " + l.name + " belum dibuka. Coba lagi nanti.");
+    }
+  }
+
+  function formLink(l, cls, label) {
+    if (l.form) {
+      var a = el(cls === "btn" ? "a" : "a", cls, label);
+      a.href = l.form; a.target = "_blank"; a.rel = "noopener noreferrer";
+      return a;
+    }
+    var b = el("button", cls, label);
+    b.type = "button";
+    b.addEventListener("click", function () { openForm(l); });
+    return b;
+  }
+
+  /* Juknis */
+  function buildJuknis() {
+    ["online", "offline"].forEach(function (mode) {
+      var host = document.getElementById("juknis-" + mode);
+      var items = LOMBA.filter(function (l) { return l.mode === mode; });
+      host.appendChild(groupTitle(mode, items.length));
+      var list = el("div", "list");
+      items.forEach(function (l) {
+        var item = el("div", "item");
+        var h = el("h3");
+        var btn = el("button", "item-btn");
+        btn.type = "button";
+        btn.id = "b-" + l.id;
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-controls", "p-" + l.id);
+        btn.appendChild(el("span", "num", String(l.no)));
+        var nm = el("span", "name", l.name);
+        nm.setAttribute("data-mode", MODE_LABEL[l.mode]);
+        btn.appendChild(nm);
+        btn.appendChild(el("span", "badge " + l.mode, MODE_LABEL[l.mode]));
+        btn.appendChild(el("span", "chev"));
+        h.appendChild(btn);
+        item.appendChild(h);
+
+        var panel = el("div", "panel");
+        panel.id = "p-" + l.id;
+        panel.setAttribute("role", "region");
+        panel.setAttribute("aria-labelledby", btn.id);
+        panel.hidden = true;
+        panel.appendChild(el("p", "intro", l.intro));
+        panel.appendChild(el("h4", null, "Peserta"));
+        panel.appendChild(el("p", "who", l.peserta));
+        addList(panel, "Ketentuan", l.ketentuan);
+        addList(panel, "Penilaian", l.penilaian);
+        var cta = el("div", "cta");
+        cta.appendChild(formLink(l, "btn", "Daftar lomba ini"));
+        panel.appendChild(cta);
+        item.appendChild(panel);
+
+        btn.addEventListener("click", function () {
+          var willOpen = btn.getAttribute("aria-expanded") !== "true";
+          document.querySelectorAll(".item.open").forEach(function (o) {
+            o.classList.remove("open");
+            o.querySelector(".item-btn").setAttribute("aria-expanded", "false");
+            o.querySelector(".panel").hidden = true;
+          });
+          if (willOpen) {
+            item.classList.add("open");
+            btn.setAttribute("aria-expanded", "true");
+            panel.hidden = false;
+          }
+        });
+        list.appendChild(item);
+      });
+      host.appendChild(list);
+    });
+  }
+
+  /* Pendaftaran */
+  function buildDaftar() {
+    ["online", "offline"].forEach(function (mode) {
+      var host = document.getElementById("daftar-" + mode);
+      var items = LOMBA.filter(function (l) { return l.mode === mode; });
+      host.appendChild(groupTitle(mode, items.length));
+      var list = el("div", "list");
+      items.forEach(function (l) {
+        var row = l.form ? el("a", "reg") : el("button", "reg");
+        if (l.form) { row.href = l.form; row.target = "_blank"; row.rel = "noopener noreferrer"; }
+        else { row.type = "button"; row.addEventListener("click", function () { openForm(l); }); }
+        row.appendChild(el("span", "num", String(l.no)));
+        row.appendChild(el("span", "name", l.name));
+        row.appendChild(el("span", "badge " + l.mode, MODE_LABEL[l.mode]));
+        row.appendChild(el("span", "daftar", "Daftar →"));
+        list.appendChild(row);
+      });
+      host.appendChild(list);
+    });
+  }
+
+  /* Navigasi antar tampilan */
+  var views = Array.prototype.slice.call(document.querySelectorAll("[data-view]"));
+  function show(v) {
+    if (v !== "juknis" && v !== "daftar") v = "home";
+    views.forEach(function (s) { s.hidden = s.getAttribute("data-view") !== v; });
+    window.scrollTo(0, 0);
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest("[data-go]") : null;
+    if (!a) return;
+    e.preventDefault();
+    var v = a.getAttribute("data-go");
+    show(v);
+    try { history.replaceState(null, "", v === "home" ? "#" : "#" + v); } catch (err) {}
+  });
+  window.addEventListener("hashchange", function () {
+    show((location.hash || "").slice(1));
+  });
+
+  buildJuknis();
+  buildDaftar();
+  show((location.hash || "").slice(1));
+})();
+</script>
+
+</body></html>
