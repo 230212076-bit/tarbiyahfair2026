@@ -6,42 +6,6 @@
 <style>
 /* Layout: satu kolom sempit di kiri, hero bermotif bintang segi delapan, dua tombol besar berdampingan lalu daftar lomba yang bisa dibuka. */
 :root {
-  --bg: #F1F5F2;
-  --surface: #FFFFFF;
-  --fg: #0E2420;
-  --muted: #4B625C;
-  --line: #CAD8D2;
-  --pattern: #B7CEC5;
-  --accent: #0A6A55;
-  --accent-ink: #FFFFFF;
-  --tint: #DDEBE5;
-  --gold: #8A5F0B;
-  --gold-soft: #F4E7C9;
-  --red: #9C2F2F;
-  --red-soft: #F6DEDC;
-  --plate: #0C3B31;
-  --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
-  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0B1A17;
-    --surface: #132622;
-    --fg: #E6F0EC;
-    --muted: #9DB5AD;
-    --line: #28433D;
-    --pattern: #1B3630;
-    --accent: #4CC2A0;
-    --accent-ink: #06211A;
-    --tint: #173831;
-    --gold: #E3B655;
-    --gold-soft: #2F2813;
-    --red: #EE8C84;
-    --red-soft: #3A1C1B;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
   --bg: #0B1A17;
   --surface: #132622;
   --fg: #E6F0EC;
@@ -55,6 +19,9 @@
   --gold-soft: #2F2813;
   --red: #EE8C84;
   --red-soft: #3A1C1B;
+  --plate: #0C3B31;
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
   color-scheme: dark;
 }
 
@@ -235,7 +202,7 @@ footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
       <p class="eyebrow">Pendaftaran Perlombaan</p>
       <h1>Tarbiyah Fair <span class="xi">XI</span></h1>
       <div class="copy">
-        <p class="year">2026 &middot; 11 cabang lomba</p>
+        <p class="year">2026 &middot; 12 cabang lomba</p>
         <p class="lead">Baca petunjuk teknis lomba yang kamu minati, lalu daftar lewat formulir yang tersedia.</p>
       </div>
       <img class="mascot" src="assets/maskot.png" width="637" height="900" alt="Maskot Tarbiyah Fair XI, gajah berpeci hijau yang melambaikan tangan">
@@ -256,7 +223,7 @@ footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
       </a>
     </div>
 
-    <p class="stats"><span><b>4</b> lomba online</span><span><b>7</b> lomba offline</span></p>
+    <p class="stats"><span><b>3</b> lomba online</span><span><b>9</b> lomba offline</span></p>
   </section>
 
   <!-- JUKNIS -->
@@ -294,21 +261,9 @@ footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
 */
 var LOMBA = [
   {
-    id: "desain-poster", no: 1, name: "Desain Poster", mode: "online", form: "",
-    intro: "Merancang satu poster digital yang menyampaikan pesan tentang pendidikan dan Tarbiyah Fair XI.",
-    peserta: "Perorangan.",
-    ketentuan: [
-      "Karya orisinal, belum pernah dipublikasikan atau diikutkan lomba lain.",
-      "Ukuran A3 potret, format JPG atau PNG, resolusi minimal 300 dpi.",
-      "Boleh memakai aplikasi desain apa pun. Aset dari pihak lain harus bebas hak cipta.",
-      "Karya dikirim melalui tautan yang tersedia di formulir pendaftaran sebelum batas waktu."
-    ],
-    penilaian: ["Kesesuaian dengan tema", "Kreativitas dan orisinalitas", "Komposisi dan tipografi", "Daya komunikasi pesan"]
-  },
-  {
-    id: "menulis-essay", no: 2, name: "Menulis Essay", mode: "online", form: "",
+    id: "menulis-essay", no: 1, name: "Menulis Essay", mode: "online", form: "",
     intro: "Menulis esai argumentatif tentang topik pendidikan sesuai tema dari panitia.",
-    peserta: "Perorangan.",
+    peserta: "Tingkat mahasiswa internasional.",
     ketentuan: [
       "Tulisan orisinal dan bebas plagiarisme.",
       "Bahasa Indonesia baku, panjang 800 sampai 1.200 kata.",
@@ -318,21 +273,21 @@ var LOMBA = [
     penilaian: ["Isi dan kekuatan argumen", "Struktur tulisan", "Bahasa dan ejaan", "Orisinalitas gagasan"]
   },
   {
-    id: "bimbingan-kelompok", no: 3, name: "Bimbingan Kelompok", mode: "online", form: "",
-    intro: "Menampilkan simulasi layanan bimbingan kelompok dalam bentuk video.",
-    peserta: "Tim. Jumlah anggota sesuai ketentuan di formulir pendaftaran.",
+    id: "desain-poster", no: 2, name: "Desain Poster", mode: "online", form: "https://docs.google.com/forms/d/1kzeJD3nI4Fj_nRrJgNQ57fSS9MAwdWQ9AY6nanBKlEg",
+    intro: "Merancang satu poster digital yang menyampaikan pesan tentang pendidikan dan Tarbiyah Fair XI.",
+    peserta: "Tingkat mahasiswa internasional.",
     ketentuan: [
-      "Video berdurasi 10 sampai 15 menit, format MP4.",
-      "Ada satu pemimpin kelompok dan beberapa anggota kelompok.",
-      "Simulasi memuat tahap pembentukan, peralihan, kegiatan, dan pengakhiran.",
-      "Tautan video dikirim melalui formulir pendaftaran."
+      "Karya orisinal, belum pernah dipublikasikan atau diikutkan lomba lain.",
+      "Ukuran A3 potret, format JPG atau PNG, resolusi minimal 300 dpi.",
+      "Boleh memakai aplikasi desain apa pun. Aset dari pihak lain harus bebas hak cipta.",
+      "Karya dikirim melalui tautan yang tersedia di formulir pendaftaran sebelum batas waktu."
     ],
-    penilaian: ["Ketepatan tahapan layanan", "Keterampilan pemimpin kelompok", "Dinamika kelompok", "Kualitas video"]
+    penilaian: ["Kesesuaian dengan tema", "Kreativitas dan orisinalitas", "Komposisi dan tipografi", "Daya komunikasi pesan"]
   },
   {
-    id: "qiraatusy-syiir", no: 4, name: "Qira’atusy Syi’ir", mode: "online", form: "",
+    id: "qiraatusy-syiir", no: 3, name: "Qira’atusy Syi’ir", mode: "online", form: "",
     intro: "Membaca syair berbahasa Arab dengan lafal, irama, dan penghayatan yang baik, direkam dalam video.",
-    peserta: "Perorangan.",
+    peserta: "Tingkat mahasiswa internasional.",
     ketentuan: [
       "Syair dipilih peserta, bernuansa keislaman atau pendidikan.",
       "Video berdurasi 3 sampai 5 menit, direkam satu kali pengambilan tanpa penyuntingan suara.",
@@ -342,19 +297,7 @@ var LOMBA = [
     penilaian: ["Makharijul huruf dan kelancaran", "Ketepatan harakat", "Irama dan penghayatan", "Penampilan"]
   },
   {
-    id: "ranking-1", no: 5, name: "Ranking 1", mode: "offline", form: "",
-    intro: "Lomba cerdas cermat dengan materi pengetahuan umum, keislaman, dan kependidikan.",
-    peserta: "Tim beranggotakan 3 orang.",
-    ketentuan: [
-      "Terdiri dari babak penyisihan tertulis dan babak final.",
-      "Peserta membawa alat tulis sendiri. Alat komunikasi dikumpulkan sebelum lomba.",
-      "Jawaban benar mendapat poin, jawaban salah dapat dikurangi poin sesuai aturan juri.",
-      "Keputusan juri bersifat mutlak."
-    ],
-    penilaian: ["Jumlah poin akhir", "Ketepatan dan kecepatan menjawab"]
-  },
-  {
-    id: "cc-mipa", no: 6, name: "CC MIPA", mode: "offline", form: "",
+    id: "cc-mipa", no: 8, name: "Cerdas Cermat MIPA", mode: "offline", form: "",
     intro: "Cerdas cermat bidang Matematika dan Ilmu Pengetahuan Alam.",
     peserta: "Tim beranggotakan 3 orang.",
     ketentuan: [
@@ -366,21 +309,9 @@ var LOMBA = [
     penilaian: ["Jumlah poin akhir", "Ketepatan jawaban", "Kecepatan menjawab"]
   },
   {
-    id: "mewarnai", no: 7, name: "Mewarnai", mode: "offline", form: "",
-    intro: "Mewarnai gambar yang disediakan panitia pada waktu yang ditentukan.",
-    peserta: "Perorangan, anak jenjang TK atau SD.",
-    ketentuan: [
-      "Gambar disediakan panitia. Alat mewarnai (krayon atau pensil warna) dibawa sendiri.",
-      "Pengerjaan dilakukan di tempat lomba selama waktu yang ditentukan.",
-      "Pendamping menunggu di luar area lomba.",
-      "Karya diberi nama peserta di bagian belakang kertas."
-    ],
-    penilaian: ["Kerapian", "Perpaduan warna", "Kreativitas", "Kebersihan hasil"]
-  },
-  {
-    id: "vocal-solo", no: 8, name: "Vocal Solo", mode: "offline", form: "",
+    id: "vocal-solo", no: 4, name: "Vocal Solo", mode: "offline", form: "",
     intro: "Menyanyikan satu lagu secara solo di hadapan juri.",
-    peserta: "Perorangan.",
+    peserta: "Tingkat umum, usia 17 sampai 22 tahun.",
     ketentuan: [
       "Lagu bebas dan sopan, boleh bernuansa islami, nasional, atau daerah.",
       "Durasi 3 sampai 5 menit.",
@@ -390,9 +321,9 @@ var LOMBA = [
     penilaian: ["Teknik vokal", "Intonasi dan tempo", "Ekspresi dan penghayatan", "Penampilan"]
   },
   {
-    id: "story-telling", no: 9, name: "Story Telling", mode: "offline", form: "",
+    id: "story-telling", no: 7, name: "Story Telling", mode: "offline", form: "",
     intro: "Menceritakan sebuah kisah secara lisan dengan menarik di depan juri.",
-    peserta: "Perorangan.",
+    peserta: "Tingkat SMA/MA se-Banda Aceh dan Aceh Besar.",
     ketentuan: [
       "Cerita berupa dongeng atau kisah teladan, dibawakan dalam bahasa Indonesia.",
       "Durasi 5 sampai 7 menit.",
@@ -402,9 +333,9 @@ var LOMBA = [
     penilaian: ["Isi dan alur cerita", "Intonasi dan ekspresi", "Mimik dan gerak tubuh", "Penguasaan panggung"]
   },
   {
-    id: "rapai-geleng", no: 10, name: "Rapai Geleng", mode: "offline", form: "",
+    id: "rapai-geleng", no: 5, name: "Rapai Geleng", mode: "offline", form: "",
     intro: "Menampilkan tarian tradisional Aceh Rapai Geleng secara berkelompok.",
-    peserta: "Kelompok beranggotakan 9 sampai 12 orang.",
+    peserta: "Tingkat umum Banda Aceh dan Aceh Besar, maksimal usia 21 tahun. Kelompok beranggotakan 9 sampai 12 orang.",
     ketentuan: [
       "Durasi penampilan 7 sampai 10 menit.",
       "Iringan boleh dimainkan langsung atau memakai rekaman.",
@@ -414,9 +345,9 @@ var LOMBA = [
     penilaian: ["Kekompakan", "Teknik gerak", "Musikalitas", "Busana dan penghayatan"]
   },
   {
-    id: "monolog", no: 11, name: "Monolog", mode: "offline", form: "",
+    id: "monolog", no: 6, name: "Monolog", mode: "offline", form: "",
     intro: "Memerankan satu tokoh dalam pertunjukan monolog di atas panggung.",
-    peserta: "Perorangan.",
+    peserta: "Tingkat mahasiswa se-Aceh.",
     ketentuan: [
       "Naskah orisinal atau adaptasi dengan mencantumkan sumbernya.",
       "Tema bebas dan tidak menyinggung SARA.",
@@ -424,6 +355,34 @@ var LOMBA = [
       "Properti sederhana dan dibawa sendiri oleh peserta."
     ],
     penilaian: ["Penghayatan tokoh", "Vokal dan artikulasi", "Ekspresi dan gestur", "Kualitas naskah"]
+  },
+  {
+    id: "badminton", no: 9, name: "Badminton", mode: "offline", form: "",
+    intro: "Pertandingan badminton sesuai jadwal dan ketentuan panitia.",
+    peserta: "Tingkat mahasiswa internasional.",
+    ketentuan: ["Format pertandingan dan aturan teknis ditetapkan panitia."],
+    penilaian: ["Hasil pertandingan sesuai aturan panitia"]
+  },
+  {
+    id: "tenis-meja", no: 10, name: "Tenis Meja", mode: "offline", form: "",
+    intro: "Pertandingan tenis meja sesuai jadwal dan ketentuan panitia.",
+    peserta: "Tingkat mahasiswa se-Aceh.",
+    ketentuan: ["Format pertandingan dan aturan teknis ditetapkan panitia."],
+    penilaian: ["Hasil pertandingan sesuai aturan panitia"]
+  },
+  {
+    id: "catur", no: 11, name: "Catur", mode: "offline", form: "",
+    intro: "Pertandingan catur sesuai jadwal dan ketentuan panitia.",
+    peserta: "Tingkat mahasiswa internasional.",
+    ketentuan: ["Format pertandingan dan aturan teknis ditetapkan panitia."],
+    penilaian: ["Hasil pertandingan sesuai aturan panitia"]
+  },
+  {
+    id: "mini-soccer", no: 12, name: "Mini Soccer", mode: "offline", form: "",
+    intro: "Pertandingan mini soccer sesuai jadwal dan ketentuan panitia.",
+    peserta: "Tingkat mahasiswa se-Aceh.",
+    ketentuan: ["Format pertandingan dan aturan teknis ditetapkan panitia."],
+    penilaian: ["Hasil pertandingan sesuai aturan panitia"]
   }
 ];
 
@@ -481,7 +440,7 @@ var LOMBA = [
   function buildJuknis() {
     ["online", "offline"].forEach(function (mode) {
       var host = document.getElementById("juknis-" + mode);
-      var items = LOMBA.filter(function (l) { return l.mode === mode; });
+      var items = LOMBA.filter(function (l) { return l.mode === mode; }).sort(function (a, b) { return a.no - b.no; });
       host.appendChild(groupTitle(mode, items.length));
       var list = el("div", "list");
       items.forEach(function (l) {
@@ -539,7 +498,7 @@ var LOMBA = [
   function buildDaftar() {
     ["online", "offline"].forEach(function (mode) {
       var host = document.getElementById("daftar-" + mode);
-      var items = LOMBA.filter(function (l) { return l.mode === mode; });
+      var items = LOMBA.filter(function (l) { return l.mode === mode; }).sort(function (a, b) { return a.no - b.no; });
       host.appendChild(groupTitle(mode, items.length));
       var list = el("div", "list");
       items.forEach(function (l) {
