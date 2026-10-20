@@ -150,6 +150,7 @@ a { color: inherit; }
   font: inherit; font-weight: 700; text-decoration: none; cursor: pointer;
 }
 .btn:hover { filter: brightness(1.08); }
+.guide-book { margin-top: 14px; }
 
 /* Daftar pendaftaran */
 .reg {
@@ -232,6 +233,7 @@ footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
     <div class="page-head">
       <h2>Juknis Perlombaan</h2>
       <p>Ketuk nama lomba untuk membuka petunjuk teknisnya.</p>
+      <button class="btn guide-book" id="guide-book" type="button">Guide Book Perlombaan</button>
     </div>
     <div id="juknis-online"></div>
     <div id="juknis-offline"></div>
@@ -391,6 +393,7 @@ var LOMBA = [
 
 (function () {
   var MODE_LABEL = { online: "Online", offline: "Offline" };
+  var GUIDE_BOOK_URL = "";
   var toastTimer = null;
 
   function el(tag, cls, text) {
@@ -426,6 +429,14 @@ var LOMBA = [
       toast("Formulir " + l.name + " belum dibuka. Coba lagi nanti.");
     }
   }
+
+  document.getElementById("guide-book").addEventListener("click", function () {
+    if (GUIDE_BOOK_URL) {
+      window.open(GUIDE_BOOK_URL, "_blank", "noopener");
+    } else {
+      toast("Tautan Guide Book belum tersedia.");
+    }
+  });
 
   function formLink(l, cls, label) {
     if (l.form) {
