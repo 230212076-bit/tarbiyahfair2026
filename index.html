@@ -150,7 +150,15 @@ a { color: inherit; }
   font: inherit; font-weight: 700; text-decoration: none; cursor: pointer;
 }
 .btn:hover { filter: brightness(1.08); }
-.guide-book { margin-top: 14px; }
+.guide-book-pointer {
+  display: block; width: 24px; height: 24px; margin: 10px 0 -2px 24px;
+  color: var(--gold); animation: point-down .9s ease-in-out infinite alternate;
+}
+.guide-book-pointer svg { display: block; width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.guide-book { margin-top: 0; }
+@keyframes point-down {
+  to { transform: translateY(4px); }
+}
 
 /* Daftar pendaftaran */
 .reg {
@@ -183,6 +191,7 @@ footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
 }
 @media (prefers-reduced-motion: reduce) {
   .big, .chev { transition: none; }
+  .guide-book-pointer { animation: none; }
 }
 </style>
 
@@ -233,6 +242,7 @@ footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
     <div class="page-head">
       <h2>Juknis Perlombaan</h2>
       <p>Ketuk nama lomba untuk membuka petunjuk teknisnya.</p>
+      <span class="guide-book-pointer" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v16M5 12l7 7 7-7"/></svg></span>
       <button class="btn guide-book" id="guide-book" type="button">Guide Book Perlombaan</button>
     </div>
     <div id="juknis-online"></div>
