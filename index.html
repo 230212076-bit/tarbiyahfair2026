@@ -212,7 +212,7 @@ footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
       <p class="eyebrow">Pendaftaran Perlombaan</p>
       <h1>Tarbiyah Fair <span class="xi">XI</span></h1>
       <div class="copy">
-        <p class="year">2026 &middot; 8 cabang lomba</p>
+        <p class="year">2026 &middot; 12 cabang lomba</p>
         <p class="lead">Baca petunjuk teknis lomba yang kamu minati, lalu daftar lewat formulir yang tersedia.</p>
       </div>
       <img class="mascot" src="assets/maskot.png" width="637" height="900" alt="Maskot Tarbiyah Fair XI, gajah berpeci hijau yang melambaikan tangan">
@@ -233,7 +233,7 @@ footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
       </a>
     </div>
 
-    <p class="stats"><span><b>3</b> lomba online</span><span><b>5</b> lomba offline</span></p>
+    <p class="stats"><span><b>3</b> lomba online</span><span><b>9</b> lomba offline</span></p>
   </section>
 
   <!-- JUKNIS -->
@@ -273,7 +273,7 @@ footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
 */
 var LOMBA = [
   {
-    id: "menulis-essay", no: 1, name: "Lomba Essay", mode: "online", form: "https://forms.gle/sZAnoDJa5prMHokB7",
+    id: "menulis-essay", no: 1, name: "Lomba Essay", mode: "online", form: "https://forms.gle/ptN8saH3iFBed1Kk8",
     intro: "Essay tingkat internasional tentang pendidikan berkualitas dan inovasi.",
     peserta: "Mahasiswa aktif dengan KTM yang masih berlaku; individu. Kuota 20 peserta.",
     biaya: "Gelombang 1 Rp 30.000; Gelombang 2 Rp 40.000.",
@@ -398,6 +398,26 @@ var LOMBA = [
     penilaian: ["Poin penyisihan: benar +4, salah −1, kosong 0", "Soal wajib: benar +100, salah 0", "Soal lemparan/rebutan: benar +100, salah atau salah prosedur −50"],
     timeline: ["Pendaftaran Gelombang 1: 20 Oktober–10 November 2026", "Pendaftaran Gelombang 2: 11–18 November 2026", "Technical Meeting: 22 November 2026", "Jadwal lomba: 26 November 2026", "Pengumuman pemenang: 27 November 2026"],
     narahubung: ["Rahma Sulistia: 082362586659", "Putri Al Bina Syakira: 082171219228"]
+  },
+  {
+    id: "badminton", no: 9, name: "Badminton", mode: "offline", form: "",
+    intro: "Informasi teknis lomba badminton akan diumumkan panitia.",
+    ketentuan: [], penilaian: []
+  },
+  {
+    id: "tenis-meja", no: 10, name: "Tenis Meja", mode: "offline", form: "",
+    intro: "Informasi teknis lomba tenis meja akan diumumkan panitia.",
+    ketentuan: [], penilaian: []
+  },
+  {
+    id: "catur", no: 11, name: "Catur", mode: "offline", form: "",
+    intro: "Informasi teknis lomba catur akan diumumkan panitia.",
+    ketentuan: [], penilaian: []
+  },
+  {
+    id: "mini-soccer", no: 12, name: "Mini Soccer", mode: "offline", form: "",
+    intro: "Informasi teknis lomba mini soccer akan diumumkan panitia.",
+    ketentuan: [], penilaian: []
   }
 ];
 
@@ -490,18 +510,20 @@ var LOMBA = [
         panel.setAttribute("aria-labelledby", btn.id);
         panel.hidden = true;
         panel.appendChild(el("p", "intro", l.intro));
-        panel.appendChild(el("h4", null, "Peserta"));
-        panel.appendChild(el("p", "who", l.peserta));
+        if (l.peserta) {
+          panel.appendChild(el("h4", null, "Peserta"));
+          panel.appendChild(el("p", "who", l.peserta));
+        }
         if (l.biaya) {
           panel.appendChild(el("h4", null, "Biaya Pendaftaran"));
           panel.appendChild(el("p", "who", l.biaya));
         }
-        addList(panel, "Ketentuan", l.ketentuan);
-        addList(panel, "Penilaian", l.penilaian);
+        if (l.ketentuan && l.ketentuan.length) addList(panel, "Ketentuan", l.ketentuan);
+        if (l.penilaian && l.penilaian.length) addList(panel, "Penilaian", l.penilaian);
         if (l.timeline) addList(panel, "Timeline", l.timeline);
         if (l.narahubung) addList(panel, "Narahubung", l.narahubung);
         var cta = el("div", "cta");
-        cta.appendChild(formLink(l, "btn", "Daftar lomba ini"));
+        cta.appendChild(formLink(l, "btn", l.form ? "Daftar lomba ini" : "Pendaftaran belum dibuka"));
         panel.appendChild(cta);
         item.appendChild(panel);
 
@@ -538,7 +560,7 @@ var LOMBA = [
         row.appendChild(el("span", "num", String(l.no)));
         row.appendChild(el("span", "name", l.name));
         row.appendChild(el("span", "badge " + l.mode, MODE_LABEL[l.mode]));
-        row.appendChild(el("span", "daftar", "Daftar →"));
+        row.appendChild(el("span", "daftar", l.form ? "Daftar →" : "Segera dibuka"));
         list.appendChild(row);
       });
       host.appendChild(list);
