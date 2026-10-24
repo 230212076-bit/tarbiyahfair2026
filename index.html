@@ -241,12 +241,10 @@ footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
     <div class="topbar"><a class="back" href="#" data-go="home"><span aria-hidden="true">&larr;</span> Beranda</a></div>
     <div class="page-head">
       <h2>Juknis Perlombaan</h2>
-      <p>Ketuk nama lomba untuk membuka petunjuk teknisnya.</p>
+      <p>Petunjuk teknis lengkap tersedia di Guide Book Perlombaan.</p>
       <span class="guide-book-pointer" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v16M5 12l7 7 7-7"/></svg></span>
       <button class="btn guide-book" id="guide-book" type="button">Guide Book Perlombaan</button>
     </div>
-    <div id="juknis-online"></div>
-    <div id="juknis-offline"></div>
   </section>
 
   <!-- PENDAFTARAN -->
@@ -294,11 +292,11 @@ var LOMBA = [
   },
   {
     id: "desain-poster", no: 2, name: "Desain Poster", mode: "online", form: "https://forms.gle/ptN8saH3iFBed1Kk8",
-    intro: "Tema :  “Bumi Menatap Asap - Hutan Terbakar, Masa Depan Terancam.”;.",
+    intro: "Lomba desain poster tingkat internasional. Juknis menyebut tiga tema, tetapi hanya mencantumkan “Bumi Menatap Asap”; konfirmasikan tema lainnya kepada panitia.",
     peserta: "Mahasiswa aktif dengan KTM yang masih berlaku; lomba bersifat individu.",
     biaya: "Rp 50.000 per peserta.",
     ketentuan: [
-      "Tema “Bumi Menatap Asap - Hutan Terbakar, Masa Depan Terancam.",
+      "Juknis menyebut peserta memilih satu dari tiga tema, tetapi hanya mencantumkan “Bumi Menatap Asap”. Konfirmasikan tema lainnya kepada panitia.",
       "Cantumkan logo UIN Ar-Raniry, DEMA FTK UIN Ar-Raniry, dan Tarbiyah Fair XI.",
       "Kirim dalam format JPG/JPEG dengan dua ukuran: Instagram Feeds 1080 × 1350 px dan Instagram Story 1080 × 1920 px.",
       "Informasi dan visual harus jelas, mudah dipahami, dan menggunakan kalimat efektif. Tidak boleh mengandung SARA, pornografi, sadisme, atau hal yang merendahkan pihak lain.",
@@ -591,7 +589,6 @@ var LOMBA = [
     show((location.hash || "").slice(1));
   });
 
-  buildJuknis();
   buildDaftar();
   show((location.hash || "").slice(1));
 })();
