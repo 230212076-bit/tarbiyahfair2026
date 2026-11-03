@@ -155,7 +155,7 @@ a { color: inherit; }
   color: var(--gold); animation: point-down .9s ease-in-out infinite alternate;
 }
 .guide-book-pointer svg { display: block; width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-.guide-book { margin-top: 0; }
+.guide-book-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 0; }
 @keyframes point-down {
   to { transform: translateY(4px); }
 }
@@ -242,9 +242,12 @@ footer a { text-decoration: none; }
     <div class="topbar"><a class="back" href="#" data-go="home"><span aria-hidden="true">&larr;</span> Beranda</a></div>
     <div class="page-head">
       <h2>Juknis Perlombaan</h2>
-      <p>Petunjuk teknis lengkap tersedia di Guide Book Perlombaan.</p>
+      <p>Petunjuk teknis lengkap tersedia di Guide Book kategori akademik dan olahraga.</p>
       <span class="guide-book-pointer" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v16M5 12l7 7 7-7"/></svg></span>
-      <button class="btn guide-book" id="guide-book" type="button">Guide Book Perlombaan</button>
+      <div class="guide-book-links">
+        <a class="btn guide-book" href="https://drive.google.com/file/d/11xktlH_CdP_2CH_Nt0AXDBEmtEY_rADF/view?usp=sharing" target="_blank" rel="noopener noreferrer">Guide Book Lomba Akademik</a>
+        <a class="btn guide-book" href="https://drive.google.com/file/d/1TbM83MMVfeadLPPQ4rZo00jsQEMnoC5h/view?usp=sharing" target="_blank" rel="noopener noreferrer">Guide Book Lomba Olahraga</a>
+      </div>
     </div>
   </section>
 
@@ -404,30 +407,29 @@ var LOMBA = [
     narahubung: ["Rahma Sulistia: 082362586659", "Putri Al Bina Syakira: 082171219228"]
   },
   {
-    id: "badminton", no: 9, name: "Badminton", mode: "offline", form: "",
+    id: "badminton-dosen", no: 9, name: "Badminton Dosen", mode: "offline", form: "https://docs.google.com/forms/d/e/1FAIpQLSeMYzhZ_0dmnSKeXOO8Eduj9kLLSj-QDdcIsV74GonaHwoH3A/viewform?usp=publish-editor",
     intro: "Informasi teknis lomba badminton akan diumumkan panitia.",
     ketentuan: [], penilaian: []
   },
   {
-    id: "tenis-meja", no: 10, name: "Tenis Meja", mode: "offline", form: "",
+    id: "badminton-mahasiswa", no: 10, name: "Badminton Mahasiswa", mode: "offline", form: "https://docs.google.com/forms/d/e/1FAIpQLSfjHZsLoogqfHt8rdZPYJi6VSWdP2Y2PKDGQ_3Hu7ETe7rm4w/viewform?usp=publish-editor",
+    intro: "Informasi teknis lomba badminton akan diumumkan panitia.",
+    ketentuan: [], penilaian: []
+  },
+  {
+    id: "tenis-meja", no: 11, name: "Tenis Meja", mode: "offline", form: "https://docs.google.com/forms/d/e/1FAIpQLSdUSaQAGJpnJZU9Ajz5W2zbmXdphveCwIF84EtQul6mIY9VEA/viewform?usp=header",
     intro: "Informasi teknis lomba tenis meja akan diumumkan panitia.",
     ketentuan: [], penilaian: []
   },
   {
-    id: "catur", no: 11, name: "Catur", mode: "offline", form: "",
+    id: "catur", no: 12, name: "Catur", mode: "offline", form: "https://docs.google.com/forms/d/e/1FAIpQLScBLmCVuNGMaXbTF16cIPp5DjD0Z51zXWyz9Ilet3o6C93Hew/viewform?usp=header",
     intro: "Informasi teknis lomba catur akan diumumkan panitia.",
-    ketentuan: [], penilaian: []
-  },
-  {
-    id: "mini-soccer", no: 12, name: "Mini Soccer", mode: "offline", form: "",
-    intro: "Informasi teknis lomba mini soccer akan diumumkan panitia.",
     ketentuan: [], penilaian: []
   }
 ];
 
 (function () {
   var MODE_LABEL = { online: "Online", offline: "Offline" };
-  var GUIDE_BOOK_URL = "https://drive.google.com/file/d/1yHR_2U6yvpAz69H_Zthfz20QQH0D6Nbd/view?usp=sharing";
   var toastTimer = null;
 
   function el(tag, cls, text) {
@@ -463,14 +465,6 @@ var LOMBA = [
       toast("Formulir " + l.name + " belum dibuka. Coba lagi nanti.");
     }
   }
-
-  document.getElementById("guide-book").addEventListener("click", function () {
-    if (GUIDE_BOOK_URL) {
-      window.open(GUIDE_BOOK_URL, "_blank", "noopener");
-    } else {
-      toast("Tautan Guide Book belum tersedia.");
-    }
-  });
 
   function formLink(l, cls, label) {
     if (l.form) {
