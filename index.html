@@ -1,98 +1,600 @@
-<!doctype html>
-<html lang="id">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1a17">
-  <meta name="description" content="Pendaftaran perlombaan Tarbiyah Fair XI 2026 telah ditutup. Terima kasih kepada semua pendaftar!">
-  <title>Pendaftaran Ditutup — Tarbiyah Fair XI 2026</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      color: #e6f0ec;
-      background: #0b1a17;
-      font-synthesis: none;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Tarbiyah Fair XI 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: satu kolom sempit di kiri, hero bermotif bintang segi delapan, dua tombol besar berdampingan lalu daftar lomba yang bisa dibuka. */
+:root {
+  --bg: #0B1A17;
+  --surface: #132622;
+  --fg: #E6F0EC;
+  --muted: #9DB5AD;
+  --line: #28433D;
+  --pattern: #1B3630;
+  --accent: #4CC2A0;
+  --accent-ink: #06211A;
+  --tint: #173831;
+  --gold: #E3B655;
+  --gold-soft: #2F2813;
+  --red: #EE8C84;
+  --red-soft: #3A1C1B;
+  --plate: #0C3B31;
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  padding-inline: 16px;
+  padding-block: 0 48px;
+}
+.wrap { max-width: 760px; margin-inline: auto; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+
+/* Hero */
+.hero { position: relative; padding-block: 44px 28px; overflow: hidden; }
+.hero svg.pat {
+  position: absolute; inset: 0 -40px 0 auto; width: 70%; height: 100%;
+  -webkit-mask-image: linear-gradient(to left, #000 20%, transparent 95%);
+  mask-image: linear-gradient(to left, #000 20%, transparent 95%);
+  pointer-events: none;
+}
+.hero svg.pat path { fill: none; stroke: var(--pattern); stroke-width: 1.4; }
+.hero > * { position: relative; }
+.eyebrow {
+  font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent);
+}
+.hero {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 20px; align-items: start;
+  grid-template-areas: "eyebrow mascot" "logo mascot" "copy mascot";
+}
+.hero .eyebrow { grid-area: eyebrow; }
+.hero h1 {
+  grid-area: logo; margin-top: 12px;
+  font-size: clamp(2.7rem, 11vw, 4.6rem); line-height: .95; font-weight: 800; letter-spacing: -.02em;
+}
+.hero h1 .xi { color: var(--gold); }
+.hero .copy { grid-area: copy; margin-top: 16px; min-width: 0; }
+.hero .mascot {
+  grid-area: mascot; align-self: end; width: clamp(130px, 26vw, 230px); height: auto;
+  filter: drop-shadow(0 12px 14px rgba(0, 0, 0, .22));
+}
+.hero .year { font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+.hero .lead { margin-top: 10px; max-width: 46ch; color: var(--muted); }
+@media (max-width: 520px) {
+  .hero { grid-template-areas: "eyebrow eyebrow" "logo logo" "copy mascot"; align-items: end; }
+  .hero .mascot { width: 118px; transform: translateY(12px); }
+}
+
+/* Tombol utama */
+.bigs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
+.big {
+  display: flex; flex-direction: column; gap: 10px; min-width: 0;
+  padding: 22px 20px; border-radius: 18px; text-decoration: none;
+  background: var(--surface); border: 1.5px solid var(--line);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.big:hover { transform: translateY(-2px); border-color: var(--accent); }
+.big.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.big .ico { width: 34px; height: 34px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.big h2 { font-size: 1.35rem; line-height: 1.15; font-weight: 800; }
+.big .sub { font-size: .92rem; opacity: .82; }
+.big .go { margin-top: auto; padding-top: 6px; font-weight: 700; font-size: .95rem; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; font-size: .92rem; color: var(--muted); }
+.stats b { color: var(--fg); font-variant-numeric: tabular-nums; }
+
+/* Halaman dalam */
+.topbar { display: flex; align-items: center; gap: 12px; padding-block: 18px 6px; }
+.back {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px 0 12px;
+  border-radius: 999px; background: var(--surface); border: 1.5px solid var(--line);
+  font: inherit; font-weight: 600; font-size: .92rem; text-decoration: none; cursor: pointer; color: var(--fg);
+}
+.back:hover { border-color: var(--accent); }
+.page-head { padding-block: 14px 8px; }
+.page-head h2 { font-size: clamp(1.8rem, 6.5vw, 2.5rem); line-height: 1.05; font-weight: 800; letter-spacing: -.01em; }
+.page-head p { margin-top: 10px; color: var(--muted); max-width: 52ch; }
+
+.group-title {
+  display: flex; align-items: center; gap: 12px; margin: 26px 0 10px;
+  font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+}
+.group-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.list { display: flex; flex-direction: column; gap: 10px; }
+
+.badge {
+  flex: none; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 999px;
+}
+.badge.online { background: var(--tint); color: var(--accent); }
+.badge.offline { background: var(--red-soft); color: var(--red); }
+
+/* Akordeon juknis */
+.item { background: var(--surface); border: 1.5px solid var(--line); border-radius: 16px; overflow: hidden; }
+.item.open { border-color: var(--accent); }
+.item-btn {
+  display: flex; align-items: center; gap: 12px; width: 100%; min-height: 60px; padding: 12px 16px;
+  background: none; border: 0; font: inherit; color: inherit; text-align: left; cursor: pointer;
+}
+.item-btn .num {
+  flex: none; width: 2ch; font-family: var(--font-display); font-weight: 800; color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+.item-btn .name { flex: 1; min-width: 0; font-weight: 600; font-size: 1.04rem; overflow-wrap: anywhere; }
+.chev { flex: none; width: 10px; height: 10px; border-right: 2.5px solid var(--muted); border-bottom: 2.5px solid var(--muted); transform: rotate(45deg); transition: transform .2s ease; margin-right: 4px; }
+.item.open .chev { transform: rotate(-135deg); }
+.panel { padding: 4px 18px 20px 18px; border-top: 1px solid var(--line); }
+.panel .intro { margin-top: 14px; }
+.panel h4 {
+  margin: 18px 0 6px; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent);
+}
+.panel p.who { color: var(--fg); }
+.panel ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 5px; }
+.panel li::marker { color: var(--gold); }
+.panel .cta { margin-top: 20px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px;
+  border-radius: 999px; background: var(--accent); color: var(--accent-ink); border: 0;
+  font: inherit; font-weight: 700; text-decoration: none; cursor: pointer;
+}
+.btn:hover { filter: brightness(1.08); }
+.guide-book-pointer {
+  display: block; width: 24px; height: 24px; margin: 10px 0 -2px 24px;
+  color: var(--gold); animation: point-down .9s ease-in-out infinite alternate;
+}
+.guide-book-pointer svg { display: block; width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.guide-book-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 0; }
+@keyframes point-down {
+  to { transform: translateY(4px); }
+}
+
+/* Daftar pendaftaran */
+.reg {
+  display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 12px 16px;
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: 16px;
+  text-decoration: none; color: inherit; width: 100%; font: inherit; text-align: left; cursor: pointer;
+}
+.reg:hover { border-color: var(--accent); }
+.reg .num { flex: none; width: 2ch; font-family: var(--font-display); font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; }
+.reg .name { flex: 1; min-width: 0; font-weight: 600; font-size: 1.04rem; overflow-wrap: anywhere; }
+.reg .daftar { flex: none; font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+.toast {
+  position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+  background: var(--fg); color: var(--bg); padding: 12px 18px; border-radius: 12px; font-weight: 600; font-size: .92rem;
+  max-width: calc(100% - 32px); text-align: center; z-index: 10;
+}
+footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line); font-size: .86rem; color: var(--muted); }
+footer a { text-decoration: none; }
+
+@media (max-width: 520px) {
+  .bigs { grid-template-columns: 1fr; }
+  .big { flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .big .ico { order: 0; }
+  .big h2 { flex: 1; }
+  .big .sub, .big .go { flex-basis: 100%; }
+  .item-btn .badge { display: none; }
+  .item-btn .name::after {
+    content: attr(data-mode); display: block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .big, .chev { transition: none; }
+  .guide-book-pointer { animation: none; }
+}
+</style>
+
+<div class="wrap">
+
+  <!-- BERANDA -->
+  <section data-view="home">
+    <header class="hero">
+      <svg class="pat" aria-hidden="true" focusable="false">
+        <defs>
+          <pattern id="star" width="56" height="56" patternUnits="userSpaceOnUse">
+            <path d="M14 14h28v28H14z"/>
+            <path d="M28 6 50 28 28 50 6 28z"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#star)" style="stroke:none"/>
+      </svg>
+      <p class="eyebrow">Pendaftaran Perlombaan</p>
+      <h1>Tarbiyah Fair <span class="xi">XI</span></h1>
+      <div class="copy">
+        <p class="year">2026 &middot; 12 cabang lomba</p>
+        <p class="lead">Baca petunjuk teknis lomba yang kamu minati, lalu daftar lewat formulir yang tersedia.</p>
+      </div>
+      <img class="mascot" src="assets/maskot.png" width="637" height="900" alt="Maskot Tarbiyah Fair XI, gajah berpeci hijau yang melambaikan tangan">
+    </header>
+
+    <div class="bigs">
+      <a class="big" href="#juknis" data-go="juknis">
+        <svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4h12l6 6v18H8z"/><path d="M20 4v6h6"/><path d="M12 16h10M12 21h10M12 26h6"/></svg>
+        <h2>Juknis Perlombaan</h2>
+        <p class="sub">Aturan, ketentuan, dan penilaian tiap lomba.</p>
+        <span class="go">Lihat juknis &rarr;</span>
+      </a>
+      <a class="big primary" href="#daftar" data-go="daftar">
+        <svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="5" width="20" height="22" rx="3"/><path d="M11 12l2.5 2.5L19 9M11 20h10"/></svg>
+        <h2>Pendaftaran Perlombaan</h2>
+        <p class="sub">Pilih lomba, lalu isi formulir Google Form.</p>
+        <span class="go">Daftar sekarang &rarr;</span>
+      </a>
+    </div>
+
+    <p class="stats"><span><b>3</b> lomba online</span><span><b>9</b> lomba offline</span></p>
+  </section>
+
+  <!-- JUKNIS -->
+  <section data-view="juknis" hidden>
+    <div class="topbar"><a class="back" href="#" data-go="home"><span aria-hidden="true">&larr;</span> Beranda</a></div>
+    <div class="page-head">
+      <h2>Juknis Perlombaan</h2>
+      <p>Petunjuk teknis lengkap tersedia di Guide Book kategori akademik dan olahraga.</p>
+      <span class="guide-book-pointer" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v16M5 12l7 7 7-7"/></svg></span>
+      <div class="guide-book-links">
+        <a class="btn guide-book" href="https://drive.google.com/file/d/11xktlH_CdP_2CH_Nt0AXDBEmtEY_rADF/view?usp=sharing" target="_blank" rel="noopener noreferrer">Guide Book Lomba Akademik</a>
+        <a class="btn guide-book" href="https://drive.google.com/file/d/1TbM83MMVfeadLPPQ4rZo00jsQEMnoC5h/view?usp=sharing" target="_blank" rel="noopener noreferrer">Guide Book Lomba Olahraga</a>
+        <a class="btn guide-book" href="https://s.id/suratrekomendasilomba" target="_blank" rel="noopener noreferrer">Surat Rekomendasi Lomba SMA/MA</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PENDAFTARAN -->
+  <section data-view="daftar" hidden>
+    <div class="topbar"><a class="back" href="#" data-go="home"><span aria-hidden="true">&larr;</span> Beranda</a></div>
+    <div class="page-head">
+      <h2>Pendaftaran Perlombaan</h2>
+      <p>Ketuk lomba yang ingin kamu ikuti. Kamu akan diarahkan ke formulir pendaftarannya.</p>
+    </div>
+    <div id="daftar-online"></div>
+    <div id="daftar-offline"></div>
+  </section>
+
+  <footer>Tarbiyah Fair XI &middot; 2026<br>Developed by <a href="https://www.instagram.com/rahmadsagaii/" target="_blank" rel="noopener noreferrer"><strong>Rahmad Sagaii</strong></a></footer>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+/*
+  CARA MENGISI TAUTAN GOOGLE FORM
+  Ganti nilai form: "" pada tiap lomba di bawah dengan tautan formulirnya,
+  contoh: form: "https://forms.gle/abc123".
+  Teks juknis juga bisa diedit langsung di data ini.
+*/
+var LOMBA = [
+  {
+    id: "menulis-essay", no: 1, name: "Lomba Essay", mode: "online", form: "https://forms.gle/sZAnoDJa5prMHokB7",
+    intro: "Lomba essay tingkat internasional dengan tema “Peran Generasi Muda dalam Mewujudkan Pendidikan yang Berkualitas”.",
+    peserta: "Mahasiswa aktif dengan KTM yang masih berlaku; lomba bersifat individu.",
+    biaya: "Rp 50.000 per peserta.",
+    ketentuan: [
+      "Tema: “Peran Generasi Muda dalam Mewujudkan Pendidikan yang Berkualitas”. Judul maksimal 15 kata dan harus sesuai tema.",
+      "Setiap peserta hanya boleh mengirimkan satu karya. Essay harus orisinal, belum pernah dipublikasikan atau memenangkan lomba, dan tidak sedang diikutsertakan dalam kompetisi lain.",
+      "Gunakan Bahasa Indonesia yang baik dan benar sesuai EYD. Panjang naskah 1.000–1.500 kata, tidak termasuk daftar pustaka.",
+      "Format: kertas A4; margin atas dan bawah 3 cm, kiri dan kanan 4 cm; Times New Roman 12 pt; spasi 1,5.",
+      "Sistematika: judul, pendahuluan, pembahasan, penutup, dan daftar pustaka. Gunakan minimal 3 referensi relevan dan kredibel; gaya sitasi mengikuti gaya selingkung, misalnya APA edisi 7.",
+      "Naskah tidak boleh mengandung plagiarisme, SARA, pornografi, ujaran kebencian, atau konten yang bertentangan dengan etika dan peraturan.",
+      "Kirim naskah dalam PDF melalui Google Drive yang disediakan panitia, dengan nama file Nama_Asal. Sertakan scan Lembar Orisinalitas yang telah dicetak dan ditandatangani.",
+      "Keterlambatan pengumpulan atau naskah yang tidak sesuai ketentuan dapat berakibat diskualifikasi. Hak cipta tetap milik peserta; panitia dapat memublikasikan karya dengan mencantumkan nama penulis.",
+      "Isi formulir, ikuti akun @demaftk_arraniry dan @tarbiyahfair_arraniry, unggah bukti follow dan transfer, bergabung ke grup peserta, serta ikuti Technical Meeting."
+    ],
+    penilaian: ["Kesesuaian tema (20%)", "Kekuatan dan kedalaman gagasan (25%)", "Argumentasi dan analisis (25%)", "Kreativitas dan inovasi (15%)", "Penggunaan referensi (10%)", "Tata bahasa dan sistematika (5%)"],
+    timeline: ["Pendaftaran: 25 Oktober–15 November 2026", "Technical Meeting: 20 November 2026", "Pengumpulan karya: 23 November 2026", "Pengumuman pemenang: 27 November 2026"],
+    narahubung: ["Yetti Hartati Bangun: 085259724010", "Novita Aulianda: 082311275575"]
+  },
+  {
+    id: "desain-poster", no: 2, name: "Desain Poster", mode: "online", form: "https://forms.gle/ptN8saH3iFBed1Kk8",
+    intro: "Lomba desain poster tingkat internasional. Juknis menyebut tiga tema, tetapi hanya mencantumkan “Bumi Menatap Asap”; konfirmasikan tema lainnya kepada panitia.",
+    peserta: "Mahasiswa aktif dengan KTM yang masih berlaku; lomba bersifat individu.",
+    biaya: "Rp 50.000 per peserta.",
+    ketentuan: [
+      "Juknis menyebut peserta memilih satu dari tiga tema, tetapi hanya mencantumkan “Bumi Menatap Asap”. Konfirmasikan tema lainnya kepada panitia.",
+      "Cantumkan logo UIN Ar-Raniry, DEMA FTK UIN Ar-Raniry, dan Tarbiyah Fair XI.",
+      "Kirim dalam format JPG/JPEG dengan dua ukuran: Instagram Feeds 1080 × 1350 px dan Instagram Story 1080 × 1920 px.",
+      "Informasi dan visual harus jelas, mudah dipahami, dan menggunakan kalimat efektif. Tidak boleh mengandung SARA, pornografi, sadisme, atau hal yang merendahkan pihak lain.",
+      "Cantumkan nama peserta di pojok kanan bawah serta sumber informasi yang dapat dipertanggungjawabkan. Desain boleh dibuat dengan aplikasi apa pun.",
+      "Kirim karya melalui Google Drive panitia dengan nama file Poster_Nama Lengkap Peserta/Instansi. Unggah juga ke Instagram pribadi, tag @demaftk_arraniry dan @tarbiyahfair_arraniry, serta gunakan #LombaPosterTarbiyahFairXI dan #TarbiyahFairXI.",
+      "Plagiarisme atau pelanggaran hak cipta dapat dikenai sanksi hukum. Isi formulir, ikuti kedua akun Instagram, unggah bukti follow dan transfer, bergabung ke grup peserta, serta ikuti Technical Meeting."
+    ],
+    penilaian: ["Penyajian informasi dan akurasi (1–40)", "Kesesuaian tema (1–35)", "Kreativitas desain (1–25)"],
+    timeline: ["Pendaftaran: 25 Oktober–15 November 2026", "Technical Meeting: 20 November 2026", "Pengumpulan karya: 23 November 2026", "Pengumuman pemenang: 27 November 2026"],
+    narahubung: ["Abdullah Ridwan Hasan: 085156870773", "Syarifah Haybah Shabira: 089529681231"]
+  },
+  {
+    id: "qiraatusy-syiir", no: 3, name: "Qira’atusy Syi’ir", mode: "online", form: "https://forms.gle/WmmDVAb6mvH3eQGW9",
+    intro: "Lomba pembacaan syi’ir tingkat internasional secara online dalam satu babak.",
+    peserta: "Mahasiswa aktif dengan KTM yang masih berlaku; peserta individu dan tidak dapat digantikan.",
+    biaya: "Rp 50.000 per peserta.",
+    ketentuan: [
+      "Pilih salah satu materi: “اخترتني؟ لماذا” karya Maysoon Al-Sowaidan atau “القدس” karya Mahmoud Darwish.",
+      "Lomba dilaksanakan secara online dalam satu babak. Pilih dan bacakan salah satu teks syi’ir yang disediakan panitia; karya harus orisinal dan belum pernah dipublikasikan atau dilombakan.",
+      "Durasi video 5–7 menit; kelebihan durasi dikenai pengurangan poin. Keterlambatan pengumpulan video mengurangi 5 poin.",
+      "Rekam dengan posisi landscape dan tampilan full body, satu kali take tanpa edit. Berpakaian sopan dan rapi.",
+      "Video diunggah ke Instagram pribadi dengan tag @demaftk_arraniry dan @tarbiyahfair_arraniry, lalu dikirim ke Google Drive melalui tautan dari panitia.",
+      "Cantumkan logo UIN Ar-Raniry, DEMA FTK UIN Ar-Raniry, dan Tarbiyah Fair XI di video. Instrumen dan alat bantu lain diperbolehkan; peserta boleh membaca teks atau tampil tanpa teks.",
+      "Ketentuan tambahan dapat disampaikan saat Technical Meeting."
+    ],
+    penilaian: ["Artikulasi, intonasi, dan vokal (20%)", "Penghayatan (20%)", "Mimik dan gestur (20%)", "Ketepatan dan kelancaran (10%)", "Kostum/kreativitas (20%)"],
+    timeline: ["Pendaftaran: 25 Oktober–15 November 2026", "Technical Meeting: 20 November 2026", "Pengumpulan karya: 23 November 2026", "Pengumuman pemenang: 27 November 2026"],
+    narahubung: ["Inayatul Fitra: 082275761881", "Ghina Maulidia: 083141657630"]
+  },
+  {
+    id: "rapai-geleng", no: 4, name: "Rapai Geleng", mode: "offline", form: "https://forms.gle/vruMxKWMMqjo9yGr8",
+    intro: "Lomba Rapai Geleng se-Banda Aceh dan Aceh Besar.",
+    peserta: "Umum se-Banda Aceh dan Aceh Besar, usia maksimal 22 tahun. Tim beranggotakan 8–15 orang dan wajib menentukan penata tari.",
+    biaya: "Rp 150.000 per tim.",
+    ketentuan: [
+      "Dilarang membawa properti berbahaya, api, atau benda tajam.",
+      "Registrasi ulang 30 menit sebelum lomba dan wajib memakai nomor undian.",
+      "Peserta yang tidak hadir setelah dipanggil 3 kali dalam 5 menit akan didiskualifikasi.",
+      "Durasi penampilan 8–12 menit."
+    ],
+    penilaian: ["Kesesuaian rukun Rapai Geleng: shalawat, salam, pukulan kosong, lagu pujian, lagu kisah dan lani", "Kesesuaian syariat Islam dan ketentuan lomba", "Kostum, penyesuaian gerak, dan kekompakan", "Kelincahan, kenyamanan, ekspresi, dan keragaman gerakan"],
+    timeline: ["Pendaftaran: 25 Oktober–15 November 2026", "Technical Meeting: 22 November 2026", "Jadwal lomba: 26 November 2026", "Pengumuman pemenang: 27 November 2026"],
+    narahubung: ["Bahagia: 082281049107"]
+  },
+  {
+    id: "monolog", no: 5, name: "Monolog", mode: "offline", form: "https://forms.gle/3wPpkD9ctKfmEq4w7",
+    intro: "Lomba monolog kategori umum se-Banda Aceh dan Aceh Besar dengan tema “Sebelum Mimpi Menjadi Nyata”.",
+    peserta: "Umum, usia 16–21 tahun; lomba bersifat individu dan peserta tidak dapat digantikan.",
+    biaya: "Rp 30.000 per peserta.",
+    ketentuan: ["Naskah monolog wajib sesuai tema “Sebelum Mimpi Menjadi Nyata”.", "Durasi penampilan 5–7 menit.", "Kostum dan tata busana yang mendukung karakter disiapkan sendiri dan harus sesuai norma.", "Peserta wajib mengikuti Technical Meeting; keputusan juri bersifat final dan tidak dapat diganggu gugat."],
+    penilaian: ["Penghayatan karakter (40%)", "Vokal dan artikulasi (30%)", "Ekspresi dan gestur (20%)", "Kreativitas dan kesesuaian tema (10%)"],
+    timeline: ["Pendaftaran: 25 Oktober–15 November 2026", "Technical Meeting: 22 November 2026", "Jadwal lomba: 26 November 2026", "Pengumuman pemenang: 27 November 2026"],
+    narahubung: ["Fatimah Azzuhra: 081264204169", "Az Zahratun Nisa: 082114468299"]
+  },
+  {
+    id: "vocal-solo", no: 6, name: "Vocal Solo", mode: "offline", closed: true, form: "https://forms.gle/VmGhy5CY7q6QXY9RA",
+    intro: "Lomba menyanyi solo se-Banda Aceh dan Aceh Besar.",
+    peserta: "Umum, usia 15–22 tahun; lomba bersifat solo/individu dan peserta tidak dapat digantikan.",
+    biaya: "Rp 35.000 per peserta.",
+    ketentuan: [
+      "Peserta wajib hadir 30 menit sebelum jadwal tampil untuk registrasi ulang, mengenakan pakaian rapi dan sopan, serta mematuhi ketentuan panitia.",
+      "Bawakan dua lagu: lagu wajib “Iqro’” (Raim Laode) dan satu lagu pilihan.",
+      "Pilihan lagu: “Bertaut” (Nadin Amizah), “33X” (Perunggu), “Sesi Potret” (Enau & Ari Lesmana), atau “Terima Kasih Sudah Bertahan” (Ghea Indrawari). Konfirmasikan lagu pilihan kepada panitia sebelum lomba.",
+      "Durasi penampilan 7–10 menit sebagaimana tercantum dalam juknis. Keputusan juri bersifat final dan tidak dapat diganggu gugat."
+    ],
+    penilaian: ["Teknik vokal (30%)", "Ketepatan nada/tempo (30%)", "Penghayatan (20%)", "Artikulasi (10%)", "Ekspresi (10%)"],
+    timeline: ["Pendaftaran: 25 Oktober–15 November 2026", "Technical Meeting: 22 November 2026", "Jadwal lomba: 26 November 2026", "Pengumuman pemenang: 27 November 2026"],
+    narahubung: ["Aini Khairi: 082285771024", "Vilda Aqtiffa: 081269009827"]
+  },
+  {
+    id: "story-telling", no: 7, name: "Story Telling", mode: "offline", form: "https://forms.gle/nLqMvfFzPuURk9qh7",
+    intro: "Lomba storytelling tingkat SMA/MA/SMK se-Banda Aceh dan Aceh Besar.",
+    peserta: "Kategori SMA/MA/SMK se-Banda Aceh dan Aceh Besar; lomba individu, maksimal 2 peserta dari setiap sekolah. Peserta tidak dapat digantikan.",
+    biaya: "Rp 30.000 per peserta.",
+    ketentuan: [
+      "Storytelling wajib dibawakan dalam Bahasa Inggris dengan tema “Inspiring Stories, Inspiring Hearts.” Cerita dapat berupa folklore, fabel, legenda, fairy tale, atau cerita inspiratif dan harus memuat pesan moral atau nilai positif.",
+      "Cerita tidak boleh mengandung SARA, pornografi, ujaran kebencian, politik praktis, kekerasan berlebihan, atau konten yang tidak sesuai norma pendidikan. Cerita yang sudah ada boleh diadaptasi, tetapi dilarang menjiplak penampilan peserta lain.",
+      "Peserta wajib menguasai cerita dan tidak boleh membaca naskah penuh; cue card sederhana diperbolehkan. Durasi 5–7 menit; durasi di luar batas dikenai pengurangan nilai.",
+      "Properti, kostum, backsound, atau sound effect diperbolehkan selama aman, sopan, dan tidak mengganggu suara peserta. Perlengkapan pribadi menjadi tanggung jawab peserta.",
+      "Registrasi ulang dan pengarahan teknis wajib diikuti. Urutan tampil ditentukan panitia; peserta yang tidak hadir setelah dipanggil 3 kali dapat dinyatakan gugur."
+    ],
+    penilaian: ["Pronunciation & intonation (25%)", "Fluency (20%)", "Expression & emotion (20%)", "Story content & organization (20%)", "Gesture & stage performance (15%)"],
+    timeline: ["Pendaftaran: 25 Oktober–15 November 2026", "Technical Meeting: 22 November 2026", "Jadwal lomba: 26 November 2026", "Pengumuman pemenang: 27 November 2026"],
+    narahubung: ["Siti Fadhilah: 081364475871", "Fauziatus Salamah: 085766309297"]
+  },
+  {
+    id: "cc-mipa", no: 8, name: "Cerdas Cermat MIPA", mode: "offline", form: "https://forms.gle/z45UUix3CPpU6JfP7",
+    intro: "Cerdas cermat MIPA tingkat SMA/MA se-Banda Aceh dan Aceh Besar.",
+    peserta: "Siswa/i aktif SMA/MA se-Banda Aceh dan Aceh Besar. Tim terdiri dari 3 siswa gabungan kelas X, XI, dan XII; satu orang menjadi juru bicara. Setiap tim wajib didampingi maksimal 1 guru resmi dari sekolah.",
+    biaya: "Rp 75.000 per tim.",
+    ketentuan: [
+      "Registrasi ulang di lokasi paling lambat 15 menit sebelum lomba dimulai. Peserta wajib memakai seragam resmi atau batik sekolah dan ID Card/tanda peserta dari panitia.",
+      "Peserta hanya boleh membawa pulpen dan pensil; kertas buram disediakan panitia. Dilarang membawa kalkulator, HP, smartwatch, tabel periodik, catatan, atau alat elektronik lainnya.",
+      "Materi mengacu pada Kurikulum Merdeka/K-13 Revisi dan KSN/OSN tingkat kabupaten/provinsi: Matematika (aljabar, trigonometri, geometri, kalkulus dasar, kombinatorika, peluang); Fisika (mekanika, termodinamika, gelombang, optik, listrik magnet, fisika modern); Kimia (struktur atom, ikatan kimia, stoikiometri, termokimia, larutan, reaksi redoks); Biologi (sel dan molekuler, genetika, anatomi dan fisiologi, ekologi, bioteknologi).",
+      "Lomba terdiri dari penyisihan, semifinal, dan final. Penyisihan berupa tes tim berbasis kertas/CBT: 60 soal (15 per mata pelajaran), 90 menit; benar +4, salah −1, tidak menjawab 0. Juknis mencantumkan 9/12 tim dengan nilai tertinggi melaju ke semifinal; jumlah pastinya perlu dikonfirmasi kepada panitia.",
+      "Semifinal: peserta dibagi menjadi 3 sesi panggung, masing-masing 3 tim. Pemenang tiap sesi dan 1 tim wildcard dengan nilai tertinggi dari peringkat kedua melaju ke final. Final diikuti 4 tim.",
+      "Dalam babak panggung terdapat soal wajib, lemparan, dan rebutan. Soal wajib: 5 soal per tim, hanya juru bicara yang menjawab; waktu 15 detik untuk teori atau 60 detik untuk hitungan; benar +100, salah/kosong 0, dan tidak dapat dilempar.",
+      "Soal lemparan: 5 soal utama per tim. Jika tim utama tidak menjawab atau salah dalam 10 detik, soal dilempar setelah aba-aba “DILEMPAR”. Tim lain menekan bel setelah aba-aba; tim yang ditunjuk menjawab dalam 5 detik. Tim utama benar +100, salah/kosong 0; tim pelempar benar +100, salah −50.",
+      "Soal rebutan terdiri dari 10 soal. Bel dapat ditekan sebelum atau setelah soal selesai dibacakan; jika ditekan saat soal dibacakan, pembacaan dihentikan dan tim yang ditunjuk menjawab dalam 5 detik. Jawaban benar +100; salah, menjawab sebelum ditunjuk, atau melewati waktu −50. Soal tidak dilempar kembali.",
+      "Peserta, pendamping, dan suporter dilarang memberi kode atau jawaban. Pelanggaran dapat berakibat pembatalan soal, pengurangan 100 poin, atau diskualifikasi. Protes tertulis hanya dapat diajukan guru pendamping resmi maksimal 10 menit setelah sesi; skor seri ditentukan melalui sudden death."
+    ],
+    penilaian: ["Penyisihan: benar +4, salah −1, kosong 0", "Soal wajib: benar +100, salah/kosong 0", "Soal lemparan: tim utama benar +100 dan salah/kosong 0; tim pelempar benar +100 dan salah −50", "Soal rebutan: benar +100; salah, menjawab sebelum ditunjuk, atau melewati batas waktu −50"],
+    timeline: ["Pendaftaran: 25 Oktober–15 November 2026", "Technical Meeting: 22 November 2026", "Jadwal lomba: 26 November 2026", "Pengumuman pemenang: 27 November 2026"],
+    narahubung: ["Rahma Sulistia: 082362586659", "Putri Al Bina Syakira: 082171219228"]
+  },
+  {
+    id: "badminton-dosen", no: 9, name: "Badminton Dosen", mode: "offline", form: "https://docs.google.com/forms/d/e/1FAIpQLSeMYzhZ_0dmnSKeXOO8Eduj9kLLSj-QDdcIsV74GonaHwoH3A/viewform?usp=publish-editor",
+    intro: "Informasi teknis lomba badminton akan diumumkan panitia.",
+    ketentuan: [], penilaian: []
+  },
+  {
+    id: "badminton-mahasiswa", no: 10, name: "Badminton Mahasiswa", mode: "offline", form: "https://docs.google.com/forms/d/e/1FAIpQLSfjHZsLoogqfHt8rdZPYJi6VSWdP2Y2PKDGQ_3Hu7ETe7rm4w/viewform?usp=publish-editor",
+    intro: "Informasi teknis lomba badminton akan diumumkan panitia.",
+    ketentuan: [], penilaian: []
+  },
+  {
+    id: "tenis-meja", no: 11, name: "Tenis Meja", mode: "offline", form: "https://docs.google.com/forms/d/e/1FAIpQLSdUSaQAGJpnJZU9Ajz5W2zbmXdphveCwIF84EtQul6mIY9VEA/viewform?usp=header",
+    intro: "Informasi teknis lomba tenis meja akan diumumkan panitia.",
+    ketentuan: [], penilaian: []
+  },
+  {
+    id: "catur", no: 12, name: "Catur", mode: "offline", form: "https://docs.google.com/forms/d/e/1FAIpQLScBLmCVuNGMaXbTF16cIPp5DjD0Z51zXWyz9Ilet3o6C93Hew/viewform?usp=header",
+    intro: "Informasi teknis lomba catur akan diumumkan panitia.",
+    ketentuan: [], penilaian: []
+  }
+];
+
+(function () {
+  var MODE_LABEL = { online: "Online", offline: "Offline" };
+  var toastTimer = null;
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function toast(msg) {
+    var t = document.getElementById("toast");
+    t.textContent = msg;
+    t.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.hidden = true; }, 3200);
+  }
+
+  function groupTitle(mode, count) {
+    return el("div", "group-title", MODE_LABEL[mode] + " · " + count + " lomba");
+  }
+
+  function addList(parent, label, items) {
+    parent.appendChild(el("h4", null, label));
+    var ul = el("ul");
+    items.forEach(function (t) { ul.appendChild(el("li", null, t)); });
+    parent.appendChild(ul);
+  }
+
+  function openForm(l) {
+    if (l.closed) {
+      toast("Pendaftaran lomba " + l.name + " telah ditutup.");
+    } else if (l.form) {
+      window.open(l.form, "_blank", "noopener");
+    } else {
+      toast("Formulir " + l.name + " belum dibuka. Coba lagi nanti.");
     }
+  }
 
-    * { box-sizing: border-box; }
-
-    body {
-      min-width: 320px;
-      min-height: 100vh;
-      min-height: 100svh;
-      margin: 0;
-      display: grid;
-      place-items: center;
-      padding: 28px 20px;
-      overflow-x: hidden;
-      background:
-        radial-gradient(ellipse at 50% 40%, rgba(35, 91, 73, .32), transparent 58%),
-        #0b1a17;
+  function formLink(l, cls, label) {
+    if (l.form && !l.closed) {
+      var a = el("a", cls, label);
+      a.href = l.form; a.target = "_blank"; a.rel = "noopener noreferrer";
+      return a;
     }
+    var b = el("button", cls, l.closed ? "Pendaftaran ditutup" : label);
+    b.type = "button";
+    b.addEventListener("click", function () { openForm(l); });
+    return b;
+  }
 
-    main {
-      width: min(100%, 680px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+  /* Juknis */
+  function buildJuknis() {
+    ["online", "offline"].forEach(function (mode) {
+      var host = document.getElementById("juknis-" + mode);
+      var items = LOMBA.filter(function (l) { return l.mode === mode; }).sort(function (a, b) { return a.no - b.no; });
+      host.appendChild(groupTitle(mode, items.length));
+      var list = el("div", "list");
+      items.forEach(function (l) {
+        var item = el("div", "item");
+        var h = el("h3");
+        var btn = el("button", "item-btn");
+        btn.type = "button";
+        btn.id = "b-" + l.id;
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-controls", "p-" + l.id);
+        btn.appendChild(el("span", "num", String(l.no)));
+        var nm = el("span", "name", l.name);
+        nm.setAttribute("data-mode", MODE_LABEL[l.mode]);
+        btn.appendChild(nm);
+        btn.appendChild(el("span", "badge " + l.mode, MODE_LABEL[l.mode]));
+        btn.appendChild(el("span", "chev"));
+        h.appendChild(btn);
+        item.appendChild(h);
 
-    .event {
-      margin: 0 0 12px;
-      color: #4cc2a0;
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
+        var panel = el("div", "panel");
+        panel.id = "p-" + l.id;
+        panel.setAttribute("role", "region");
+        panel.setAttribute("aria-labelledby", btn.id);
+        panel.hidden = true;
+        panel.appendChild(el("p", "intro", l.intro));
+        if (l.peserta) {
+          panel.appendChild(el("h4", null, "Peserta"));
+          panel.appendChild(el("p", "who", l.peserta));
+        }
+        if (l.biaya) {
+          panel.appendChild(el("h4", null, "Biaya Pendaftaran"));
+          panel.appendChild(el("p", "who", l.biaya));
+        }
+        if (l.ketentuan && l.ketentuan.length) addList(panel, "Ketentuan", l.ketentuan);
+        if (l.penilaian && l.penilaian.length) addList(panel, "Penilaian", l.penilaian);
+        if (l.timeline) addList(panel, "Timeline", l.timeline);
+        if (l.narahubung) addList(panel, "Narahubung", l.narahubung);
+        var cta = el("div", "cta");
+        cta.appendChild(formLink(l, "btn", l.form ? "Daftar lomba ini" : "Pendaftaran belum dibuka"));
+        panel.appendChild(cta);
+        item.appendChild(panel);
 
-    h1 {
-      margin: 0;
-      font-family: "Trebuchet MS", system-ui, sans-serif;
-      font-size: clamp(2.35rem, 9vw, 4.5rem);
-      font-weight: 800;
-      letter-spacing: -.045em;
-      line-height: 1;
-      text-wrap: balance;
-    }
+        btn.addEventListener("click", function () {
+          var willOpen = btn.getAttribute("aria-expanded") !== "true";
+          document.querySelectorAll(".item.open").forEach(function (o) {
+            o.classList.remove("open");
+            o.querySelector(".item-btn").setAttribute("aria-expanded", "false");
+            o.querySelector(".panel").hidden = true;
+          });
+          if (willOpen) {
+            item.classList.add("open");
+            btn.setAttribute("aria-expanded", "true");
+            panel.hidden = false;
+          }
+        });
+        list.appendChild(item);
+      });
+      host.appendChild(list);
+    });
+  }
 
-    h1 span { color: #e3b655; }
+  /* Pendaftaran */
+  function buildDaftar() {
+    ["online", "offline"].forEach(function (mode) {
+      var host = document.getElementById("daftar-" + mode);
+      var items = LOMBA.filter(function (l) { return l.mode === mode; }).sort(function (a, b) { return a.no - b.no; });
+      host.appendChild(groupTitle(mode, items.length));
+      var list = el("div", "list");
+      items.forEach(function (l) {
+        var canRegister = l.form && !l.closed;
+        var row = canRegister ? el("a", "reg") : el("button", "reg");
+        if (canRegister) {
+          row.href = l.form; row.target = "_blank"; row.rel = "noopener noreferrer";
+        } else {
+          row.type = "button";
+          row.addEventListener("click", function () { openForm(l); });
+        }
+        row.appendChild(el("span", "num", String(l.no)));
+        row.appendChild(el("span", "name", l.name));
+        row.appendChild(el("span", "badge " + (l.closed ? "offline" : l.mode), l.closed ? "Ditutup" : MODE_LABEL[l.mode]));
+        row.appendChild(el("span", "daftar", l.closed ? "Ditutup" : (l.form ? "Daftar →" : "Segera dibuka")));
+        list.appendChild(row);
+      });
+      host.appendChild(list);
+    });
+  }
 
-    .message {
-      margin: 18px 0 0;
-      color: #b6c8c1;
-      font-size: clamp(1rem, 3.5vw, 1.15rem);
-      line-height: 1.7;
-      text-wrap: balance;
-    }
+  /* Navigasi antar tampilan */
+  var views = Array.prototype.slice.call(document.querySelectorAll("[data-view]"));
+  function show(v) {
+    if (v !== "juknis" && v !== "daftar") v = "home";
+    views.forEach(function (s) { s.hidden = s.getAttribute("data-view") !== v; });
+    window.scrollTo(0, 0);
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest("[data-go]") : null;
+    if (!a) return;
+    e.preventDefault();
+    var v = a.getAttribute("data-go");
+    show(v);
+    try { history.replaceState(null, "", v === "home" ? "#" : "#" + v); } catch (err) {}
+  });
+  window.addEventListener("hashchange", function () {
+    show((location.hash || "").slice(1));
+  });
 
-    .mascot {
-      order: 1;
-      display: block;
-      width: clamp(170px, 42vw, 250px);
-      height: auto;
-      margin-top: 24px;
-      filter: drop-shadow(0 16px 24px rgba(0, 0, 0, .28));
-    }
+  buildDaftar();
+  show((location.hash || "").slice(1));
+})();
+</script>
 
-    @media (max-width: 420px) {
-      body { padding-inline: 18px; }
-      .event { font-size: .7rem; }
-      .mascot { width: min(54vw, 210px); margin-top: 18px; }
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <p class="event">Tarbiyah Fair XI &middot; 2026</p>
-    <h1>Pendaftaran Perlombaan <span>Ditutup</span></h1>
-    <p class="message">Terima kasih kepada semua pendaftar! Sampai bertemu di Tarbiyah Fair XI.</p>
-    <img class="mascot" src="assets/maskot.png" width="637" height="900" alt="Maskot Tarbiyah Fair XI, gajah berpeci hijau yang melambaikan tangan">
-  </main>
-</body>
-</html>
+</body></html>
